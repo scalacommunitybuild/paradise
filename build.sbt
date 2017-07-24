@@ -163,13 +163,6 @@ lazy val usePluginSettings = Seq(
 
 lazy val publishableSettings = Def.settings(
   sharedSettings,
-  publishTo := {
-    if (sys.props("scalameta.publish") == "sonatype")
-      Some("releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2")
-    else
-      publishTo.in(bintray).value
-  },
-  bintrayOrganization := Some("scalameta"),
   publishArtifact.in(Compile) := true,
   publishArtifact.in(Test) := false, {
     val publishingEnabled: Boolean = {
