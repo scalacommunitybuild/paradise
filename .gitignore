@@ -23,3 +23,6 @@ project/plugins/project/
 .ensime
 
 secrets.yml
+
+# https://github.com/scala/community-builds/pull/491#issuecomment-286616970
+.dbuild/
