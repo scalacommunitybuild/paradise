@@ -172,17 +172,7 @@ object version {
       // }
       "3.0.0"
     }
-    val preReleaseSuffix = {
-      val gitDescribeSuffix = {
-        // TODO: uncomment this once we release 3.0.0
-        // val distance = os.git.distance("v3.0.0", "HEAD")
-        val distance = os.git.distance("v3.0.0-M1_2.11.8", "HEAD")
-        val currentSha = os.git.currentSha().substring(0, 8)
-        s"$distance-$currentSha"
-      }
-      if (os.git.isStable()) gitDescribeSuffix
-      else gitDescribeSuffix + "." + os.time.stamp
-    }
+    val preReleaseSuffix = "0"
     nextStableVersion + "-" + preReleaseSuffix
   }
 }
