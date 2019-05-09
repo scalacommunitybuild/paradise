@@ -10,7 +10,7 @@ class Repl extends FunSuite {
     s.usejavacp.value = false
     s.classpath.value = sys.props("sbt.paths.tests.classpath")
     s.plugin.value = List(sys.props("sbt.paths.plugin.jar"))
-    val lines = ILoop.runForTranscript(code, s).lines.toList
+    val lines = Predef.augmentString(ILoop.runForTranscript(code, s)).lines.toList
     lines.drop(3).dropRight(2).map(_.replaceAll("\\s+$","")).mkString("\n").trim.stripSuffix("scala>").trim
   }
 
